@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WallStreet Man</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="word-list.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="game-modal">
+        <div class="content">
+            <!-- SVG image for game over -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24">
+                <!-- Replace with actual SVG content for game over -->
+                <circle cx="12" cy="12" r="10" fill="red"/>
+            </svg>
+            <h4>Game Over!</h4>
+            <p>The correct word was: <b>rainbow</b></p>
+            <button class="play-again">Play Again</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="hangman-box">
+            <!-- Dynamic hangman image -->
+            <img id="hangman-img" src="hangman-0.svg" alt="hangman-img-0">
+            <img id="hangman-img" src="hangman-1.svg" alt="hangman-img-1">
+            <img id="hangman-img" src="hangman-2.svg" alt="hangman-img-2">
+            <img id="hangman-img" src="hangman-3.svg" alt="hangman-img-3">
+            <img id="hangman-img" src="hangman-4.svg" alt="hangman-img-4">
+            <img id="hangman-img" src="hangman-5.svg" alt="hangman-img-5">
+            <img id="hangman-img" src="hangman-6.svg" alt="hangman-img-6">
+            <h1>WallStreet Man</h1>
+        </div>
+        <div class="game-box">
+            <ul class="word-display"></ul>
+            <h4 class="hint-text">
+                Hint:
+                <b>Think Like an Investor.</b>
+            </h4>
+            <h4 class="guesses-text">
+                Incorrect guesses:
+                <b>0 / 6</b>
+            </h4>
+            <div class="keyboard"></div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code to dynamically update hangman image
+        const hangmanImg = document.getElementById('hangman-img');
+        let hangmanStage = 0; // Initial hangman stage
+        let guessesRemaining = 6; // Total number of guesses allowed
+
+        function updateHangmanImage() {
+            // Update hangman image source based on current stage
+            hangmanImg.src = `hangman-${hangmanStage}.svg`;
+        }
+
+        // Example: Call updateHangmanImage() to update the image when needed
+         updateHangmanImage();
+
+        // Example: Simulate gameplay by incrementing hangmanStage
+         setTimeout(() => {
+            hangmanStage = 1;
+            updateHangmanImage();
+         }, 1000);
+
+        // Example: Simulate guessing logic
+        function guess(letter) {
+            // Check if the guessed letter is incorrect
+            if (!isCorrectGuess(letter)) {
+                // Decrement the remaining guesses
+                guessesRemaining--;
+                // Update hangman stage based on remaining guesses
+                hangmanStage = 6 - guessesRemaining;
+                updateHangmanImage();
+                // Update incorrect guesses text
+                document.querySelector('.guesses-text b').textContent = `${6 - guessesRemaining} / 6`;
+                // Check if all guesses are used up
+                if (guessesRemaining === 0) {
+                    // Game over logic here
+                    // Show game over modal
+                    document.querySelector('.game-modal').style.display = 'block';
+                    // Hide game content
+                    document.querySelector('.container').style.display = 'none';
+                }
+            }
+        }
+
+        // Example: Check if the guessed letter is incorrect
+        function isCorrectGuess(letter) {
+            // Implement your logic to check if the guessed letter is correct
+            // For example, you might compare it with the letters in the word
+            return false; // Return true if correct, false otherwise
+        }
+    </script>
+</body>
+</html>
