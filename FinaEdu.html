@@ -8,11 +8,84 @@
 </head>
 <body>
     <nav>
+    <style>
+        /* Additional CSS for horizontal navigation */
+        nav {
+            background-color: #333;
+            padding: 10px 20px; 
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center; 
+        }
+        li {
+            display: inline-block; 
+            margin: 0 20px; 
+            position: relative; 
+        }
+        a {
+            color: white;
+            text-decoration: none;
+            display: block; 
+            padding: 10px; 
+        }
+        /* Dropdown menu styles */
+        .dropdown {
+            position: absolute;
+            top: calc(100% + 10px); 
+            left: 0;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+            display: none; 
+        }
+        li:hover .dropdown {
+            display: block; 
+        }
+        .dropdown a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+        .arrow {
+            position: absolute;
+            bottom: -10px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent; 
+            border-right: 10px solid transparent;
+            border-top: 10px solid #333; 
+        }
+    </style>
+</head>
+<body>
+    <nav>
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Investors</a></li>
+            <li class="dropdown">
+                <a href="#">Products</a>
+                <div class="dropdown">
+                    <a href="#">Education</a>
+                    <a href="#">DeFi Lending</a>
+                    <a href="#">Block Game</a>
+                </div>
+                <div class="arrow"></div> 
+            </li>
+            <li class="dropdown">
+                <a href="#">Team</a>
+                <div class="dropdown">
+                    <a href="#">Meet Us</a>
+                    <a href="#">Join Us</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                <div class="arrow"></div> 
+            </li>
         </ul>
     </nav>
     <h1>Welcome to the BlockLoanAcademy.Building Financial Futures One Block at a Time.</h1>
