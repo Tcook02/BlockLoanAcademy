@@ -1,65 +1,57 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlockLoanAcademy</title>
-    <link rel="stylesheet" href="FinanEdu.css">
-</head>
-<body>
-    <nav>
+    <title>Financial Literacy Website</title>
     <style>
-        /* Additional CSS for horizontal navigation */
+        /* Basic CSS for horizontal navigation */
         nav {
             background-color: #333;
-            padding: 10px 20px; 
+            padding: 10px 0;
         }
         ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            text-align: center; 
+            text-align: center; /* Center the list horizontally */
         }
         li {
-            display: inline-block; 
-            margin: 0 20px; 
-            position: relative; 
+            display: inline-block;
+            margin: 0 20px;
         }
         a {
             color: white;
             text-decoration: none;
-            display: block; 
-            padding: 10px; 
         }
         /* Dropdown menu styles */
         .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
             position: absolute;
-            top: calc(100% + 10px); 
-            left: 0;
             background-color: #333;
             min-width: 160px;
             z-index: 1;
-            display: none; 
         }
-        li:hover .dropdown {
-            display: block; 
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
-        .dropdown a {
+        .dropdown-content a {
             color: white;
+            padding: 12px 16px;
             text-decoration: none;
             display: block;
-            padding: 10px;
         }
-        .arrow {
-            position: absolute;
-            bottom: -10px; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent; 
-            border-right: 10px solid transparent;
-            border-top: 10px solid #333; 
+        /* Mission goal section */
+        .mission-goal {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .mission-goal img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -70,25 +62,47 @@
             <li><a href="#">About</a></li>
             <li class="dropdown">
                 <a href="#">Products</a>
-                <div class="dropdown">
+                <div class="dropdown-content">
                     <a href="#">Education</a>
                     <a href="#">DeFi Lending</a>
-                    <a href="#">Block Game</a>
+                    <a href="#">Games</a>
                 </div>
-                <div class="arrow"></div> 
             </li>
             <li class="dropdown">
                 <a href="#">Team</a>
-                <div class="dropdown">
+                <div class="dropdown-content">
                     <a href="#">Meet Us</a>
                     <a href="#">Join Us</a>
                     <a href="#">Contact Us</a>
                 </div>
-                <div class="arrow"></div> 
             </li>
         </ul>
     </nav>
-    <h1>Welcome to the BlockLoanAcademy.Building Financial Futures One Block at a Time.</h1>
-    <p>This is where you can provide your website's main content.</p>
+
+    <!-- Picture and mission goal section -->
+    <div class="mission-goal">
+        <img src="happy-man.jpg" alt="Mission Picture">
+        <p>Our mission is to enhance financial literacy among college students.</p>
+    </div>
+
+    <!-- Sign-up questions section -->
+    <div class="signup-questions">
+        <h2>Sign-up Questions</h2>
+        <form>
+            <!-- Your sign-up questions go here -->
+            <!-- Example: -->
+            <label for="current-year">What is your current year in college?</label>
+            <input type="text" id="current-year" name="current-year">
+
+            <label for="major">What is your major?</label>
+            <input type="text" id="major" name="major">
+
+            <!-- Add more questions as needed -->
+        </form>
+    </div>
+
+    <script>
+        // JavaScript code goes here
+    </script>
 </body>
 </html>
